@@ -3,7 +3,7 @@ import axios from "axios";
 import logo from "../assets/abs.svg";
 import toast, { Toaster } from "react-hot-toast";
 
-const Navbar = () => {
+const Navbar = ({ onAddCategory }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [title, setTitle] = useState("");
@@ -21,11 +21,12 @@ const Navbar = () => {
 				}
 			);
 			if (response.data) {
-				toast.success("Request submitted successfully!");
+				toast.success("Request Submitted Successfully!");
+				onAddCategory(response.data);
 			}
 		} catch (error) {
 			console.error(error);
-			toast.error(error);
+			toast.error("Error submitting request");
 		}
 
 		setIsModalOpen(false);
@@ -35,6 +36,7 @@ const Navbar = () => {
 
 	return (
 		<nav className="bg-black text-white">
+			<Toaster />
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16">
 					<div className="flex items-center">
@@ -107,16 +109,16 @@ const Navbar = () => {
 			)}
 
 			{isModalOpen && (
-				<div className="fixed inset-0 z-10 overflow-y-auto flex items-center justify-center">
+				<div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center">
 					<div className="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
-					<div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-xs sm:max-w-lg w-full mx-4 sm:mx-auto">
+					<div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-xs sm:max-w-lg w-full mx-4 sm:mx-auto relative">
 						<div className="flex justify-between items-center p-4 border-b font-serif">
 							<h3 className="text-lg font-medium text-gray-900 italic">
 								Submit a request
 							</h3>
 							<button
 								onClick={() => setIsModalOpen(false)}
-								className="text-gray-400 hover:text-gray-500"
+								className="absolute top-2 right-2 text-gray-400 hover:text-gray-500"
 							>
 								<svg
 									className="h-6 w-6"

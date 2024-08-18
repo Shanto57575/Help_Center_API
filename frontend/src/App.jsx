@@ -3,7 +3,7 @@ import axios from "axios";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
-function App() {
+const App = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [categories, setCategories] = useState([]);
 
@@ -28,9 +28,13 @@ function App() {
 		category.title.toLowerCase().includes(searchTerm.toLowerCase())
 	);
 
+	const handleAddCategory = (newCategory) => {
+		setCategories((prevCategories) => [...prevCategories, newCategory]);
+	};
+
 	return (
 		<div className="min-h-screen font-sans bg-gray-200">
-			<Navbar />
+			<Navbar onAddCategory={handleAddCategory} />
 			<main className="flex-grow">
 				<div className="">
 					<div className="p-4 md:p-16">
@@ -62,7 +66,7 @@ function App() {
 								</svg>
 							</div>
 						</div>
-					</div>{" "}
+					</div>
 					{!categories ? (
 						<div className="flex justify-center items-center h-64">
 							<div className="animate-spin rounded-full h-28 w-28 border-t-2 border-b-2 border-blue-500"></div>
@@ -74,7 +78,7 @@ function App() {
 									key={category._id}
 									className="bg-gray-100 w-full sm:w-auto mx-auto overflow-hidden shadow rounded-lg border border-gray-200"
 								>
-									<div className="w-full md:w-96 h-40 mx-auto">
+									<div className="w-full md:w-96 h-full md:h-40 mx-auto">
 										<h3 className="text-base font-bold sm:text-lg text-gray-600 px-5 py-3 border-b">
 											{category.title}
 										</h3>
@@ -88,10 +92,9 @@ function App() {
 					)}
 				</div>
 			</main>
-
 			<Footer />
 		</div>
 	);
-}
+};
 
 export default App;
