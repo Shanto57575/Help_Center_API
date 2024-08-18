@@ -3,13 +3,16 @@ import dotenv from 'dotenv';
 import express from 'express'
 import cardRouter from './routes/card.routes.js'
 import dbConnect from './db/dbConnection.js';
-
 dotenv.config();
 
 const app = express();
 dbConnect()
 
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://abstracthelpcenter316.netlify.app'],
+    credentials: true,
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
