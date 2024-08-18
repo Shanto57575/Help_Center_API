@@ -9,7 +9,13 @@ const createCard = async (req, res) => {
 
         res.status(201).json(card)
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        if (error.code === 11000) {
+            const duplicateKey = Object.keys(error.keyValue)[0];
+            const message = `The ${duplicateKey} '${error.keyValue[duplicateKey]}' already exists.`;
+            res.status(400).json({ error: message });
+        } else {
+            res.status(500).json({ error: 'An error occurred while creating the card.' });
+        }
     }
 }
 

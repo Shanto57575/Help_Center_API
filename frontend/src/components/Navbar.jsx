@@ -25,8 +25,8 @@ const Navbar = ({ onAddCategory }) => {
 				onAddCategory(response.data);
 			}
 		} catch (error) {
-			console.error(error);
-			toast.error("Error submitting request");
+			console.error(error.response.data.error);
+			toast.error(error.response.data.error);
 		}
 
 		setIsModalOpen(false);
