@@ -63,4 +63,4 @@ The frontend will be running on: `http://localhost:5173.`
 
 [visit Frontend Live Site](https://abstracthelpcenter316.netlify.app)
 
-[visit Backend Live Site](https://backend-wqc5in6xn-shanto57575s-projects.vercel.app/ping)
+[visit Backend Live Site](https://backend-black-zeta.vercel.app/ping)

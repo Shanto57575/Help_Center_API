@@ -10,7 +10,6 @@ dbConnect()
 
 app.use(cors({
     origin: ['http://localhost:5173', 'https://abstracthelpcenter316.netlify.app'],
-    credentials: true,
 }));
 
 app.use(express.json());
