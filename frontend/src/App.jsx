@@ -13,7 +13,9 @@ function App() {
 
 	const fetchCategories = async () => {
 		try {
-			const response = await axios.get("http://localhost:5000/api/cards");
+			const response = await axios.get(
+				"https://backend-wqc5in6xn-shanto57575s-projects.vercel.app/api/cards"
+			);
 			if (response.data) {
 				setCategories(response.data);
 			}

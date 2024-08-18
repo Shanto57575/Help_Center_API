@@ -13,10 +13,13 @@ const Navbar = () => {
 		e.preventDefault();
 
 		try {
-			const response = await axios.post("http://localhost:5000/api/cards", {
-				title,
-				description,
-			});
+			const response = await axios.post(
+				"https://backend-wqc5in6xn-shanto57575s-projects.vercel.app/api/cards",
+				{
+					title,
+					description,
+				}
+			);
 			if (response.data) {
 				toast.success("Request submitted successfully!");
 			}

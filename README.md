@@ -26,7 +26,7 @@ npm install
 
 Start the backend server: `npm run dev`
 
-The backend server will be running on: `http://localhost:5000.`
+The backend server will be running on: `http://localhost:5000`
 
 3. **Set up the Frontend:**
 
@@ -60,3 +60,7 @@ The frontend will be running on: `http://localhost:5173.`
    `GET /api/cards (Gets all card)`
 
    `GET /api/cards/:title (Gets specific card)`
+
+[visit Frontend Live Site](https://abstracthelpcenter316.netlify.app)
+
+[visit Backend Live Site](https://backend-wqc5in6xn-shanto57575s-projects.vercel.app/ping)
