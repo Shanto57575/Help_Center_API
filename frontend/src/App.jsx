@@ -62,25 +62,30 @@ function App() {
 								</svg>
 							</div>
 						</div>
-					</div>
-
-					<div className="bg-white md:px-20 lg:px-40 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 p-4 sm:p-8 md:p-16">
-						{filteredCategories.map((category) => (
-							<div
-								key={category._id}
-								className="bg-gray-100 w-full sm:w-auto mx-auto overflow-hidden shadow rounded-lg border border-gray-200"
-							>
-								<div className="w-full md:w-96 h-40 mx-auto">
-									<h3 className="text-base font-bold sm:text-lg text-gray-600 px-5 py-3 border-b">
-										{category.title}
-									</h3>
-									<p className="mt-1 font-medium text-base text-gray-500 px-5 pb-3">
-										{category.description}
-									</p>
+					</div>{" "}
+					{!categories ? (
+						<div className="flex justify-center items-center h-64">
+							<div className="animate-spin rounded-full h-28 w-28 border-t-2 border-b-2 border-blue-500"></div>
+						</div>
+					) : (
+						<div className="bg-white md:px-20 lg:px-40 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 p-4 sm:p-8 md:p-16">
+							{filteredCategories.map((category) => (
+								<div
+									key={category._id}
+									className="bg-gray-100 w-full sm:w-auto mx-auto overflow-hidden shadow rounded-lg border border-gray-200"
+								>
+									<div className="w-full md:w-96 h-40 mx-auto">
+										<h3 className="text-base font-bold sm:text-lg text-gray-600 px-5 py-3 border-b">
+											{category.title}
+										</h3>
+										<p className="mt-1 font-medium text-base text-gray-500 px-5 pb-3">
+											{category.description}
+										</p>
+									</div>
 								</div>
-							</div>
-						))}
-					</div>
+							))}
+						</div>
+					)}
 				</div>
 			</main>
 
