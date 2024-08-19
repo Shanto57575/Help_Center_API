@@ -12,7 +12,6 @@ This project is a fully responsive Help Center API built with the MERN stack (Mo
 
    ```bash
    git clone https://github.com/your-username/help-center-api.git
-   cd help-center-api
    ```
 
 2. **Set up the Backend:**
